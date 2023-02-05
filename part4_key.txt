@@ -1,0 +1,8 @@
+--- Part 4 output ---
+0
+1
+4
+8
+9
+list->at(10) threw an exception
+list->at(29) threw an exception
