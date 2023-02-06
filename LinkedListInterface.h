@@ -1,89 +1,33 @@
-//YOU MAY NOT MODIFY THIS DOCUMENT
+// YOU MAY NOT MODIFY THIS DOCUMENT
+
 #pragma once
+
 #include <string>
 
-using namespace std;
-
 template<typename T>
-class LinkedListInterface
-{
-
+class LinkedListInterface {
 public:
+    LinkedListInterface() {}
 
-	LinkedListInterface(void) {};
-	virtual ~LinkedListInterface(void) {};
+    virtual ~LinkedListInterface() {}
 
-	/*
-	insertHead
+    virtual void push_front(T item) = 0;
+    virtual void push_back(T item) = 0;
+    virtual void insert(T item, size_t position) = 0;
 
-	A node with the given value should be inserted at the beginning of the list.
+    virtual void pop_front() = 0;
+    virtual void pop_back() = 0;
+    virtual void remove(size_t position) = 0;
 
-	Do not allow duplicate values in the list.
-	*/
-	virtual void insertHead(T value) = 0;
+    virtual T front() const = 0;
+    virtual T back() const = 0;
+    virtual T at(size_t index) const = 0;
 
-	/*
-	insertTail
+    virtual bool contains(const T& item) const = 0;
 
-	A node with the given value should be inserted at the end of the list.
+    virtual size_t size() const = 0;
 
-	Do not allow duplicate values in the list.
-	*/
-	virtual void insertTail(T value) = 0;
+    virtual void clear() = 0;
 
-	/*
-	insertAfter
-
-	A node with the given value should be inserted immediately after the
-	node whose value is equal to insertionNode.
-
-	A node should only be added if the node whose value is equal to
-	insertionNode is in the list. Do not allow duplicate values in the list.
-	*/
-	virtual void insertAfter(T value, T insertionNode) = 0;
-
-	/*
-	remove
-
-	The node with the given value should be removed from the list.
-
-	The list may or may not include a node with the given value.
-	*/
-	virtual void remove(T value) = 0;
-
-	/*
-	clear
-
-	Remove all nodes from the list.
-	*/
-	virtual void clear() = 0;
-
-	/*
-	at
-
-	Returns the value of the node at the given index. The list begins at
-	index 0.
-
-	If the given index is out of range of the list, throw an out of range exception.
-	*/
-	virtual T at(int index) = 0;
-
-	/*
-	size
-
-	Returns the number of nodes in the list.
-	*/
-	virtual int size() = 0;
-
-	/*
-	toString
-	
-	Returns a string representation of the list, with the value of each node listed in order (Starting from the head) and separated by a single space
-	There should be no trailing space at the end of the string
-
-	For example, a LinkedList containing the value 1, 2, 3, 4, and 5 should return
-	"1 2 3 4 5"
-	*/
-	virtual string toString() = 0;
-
+    virtual std::string toString() const = 0;
 };

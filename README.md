@@ -13,21 +13,19 @@ Your linked list class contains the following public methods:
 
 * A constructor
 * A destructor
-* insertHead()
-* insertTail()
-* insertAfter()
+* push_front()
+* push_back()
+* insert()
+* pop_front()
+* pop_back()
 * remove()
-* clear()
+* front()
+* back()
 * at()
+* contains()
 * size()
+* clear()
 * toString()
-
-and the following private data member:
-
-* `head` -- a pointer to the first node in your linked list
-
-You will need to create this data member and keep it properly updated as you
-build your class.
 
 Since templated classes are almost always implemented completely in their header
 file, all you need to make (and submit) is a `LinkedList.h` file.
@@ -42,10 +40,10 @@ To test your code, you have two options:
    number as a command-line argument. To do that, you'll need to open the
    drop-down menu to the left of the green play button, open the drop-down menu
    under "tests", click "Edit", and put the part number in the "Program
-   arguments" field. The valid options are 1, 2, 3, 4, 5, 6, and all. In
-   `tests.cpp`, there are six functions, one to test each part. They are called
-   `part1`, `part2`, etc. You can jump to the appropriate function to see the
-   code that the autograder will run on your linked list. The autograder is
+   arguments" field. The valid options are 1, 2, 3, 4, 5, 6, 7, and all. In
+   `tests.cpp`, there are seven functions, one to test each part. They are
+   called `part1`, `part2`, etc. You can jump to the appropriate function to see
+   the code that the autograder will run on your linked list. The autograder is
    expecting the output of `tests.cpp` to exactly match `part1_key.txt` for part
    1, `part2_key.txt` for part 2, etc.
 
@@ -59,76 +57,92 @@ If you find yourself confused, you might find
 [this video](https://youtu.be/zRdZaBSqjEM) helpful. Otherwise, you can work
 through the tasks below to implement your linked list class:
 
-## Part 1 (20 points) - Node class, constructor, `toString()`, and `insertHead()`
+## Part 1 (15 points) - Node class, constructor, `toString`, and `push_front`
 
-Let's start off by creating a constructor and implementing `insertHead` and
+Let's start off by creating a constructor and implementing `push_front` and
 `toString` so that we can see what's going on in our linked list.
 
 Before implementing any methods, you'll need to create a `Node` class that can
 hold a value and point to the next node. After that, you'll need to add a
-private data member to the `LinkedList` for your `head` pointer. Once you've
-done that, you're ready to start implementing `LinkedList`'s methods.
+private data member to the `LinkedList` for your head pointer. Depending on how
+you want to implement your list, you might also consider adding a tail pointer
+and/or size counter as private data members. Once you've done that, you're ready
+to start implementing `LinkedList`'s methods.
 
-The constructor should be pretty simple; all it really needs to do is set `head`
-to `nullptr`.
+The constructor should be pretty simple; all it needs to do is initalize your
+class to a blank state.
 
-After getting the constructor working, implement the `insertHead` method. This
+After getting the constructor working, implement the `push_front` method. This
 method should:
-1. Check that the given value is not already in the list. If it is, `insertHead`
-   should return without adding anything to the list.
-2. Create a new node that contains the given value.
-3. Set the `next` pointer of that node to be the current `head` pointer.
-4. Change the `head` pointer to point to the newly created node.
+
+1. Create a new node that contains the given value.
+2. Set the "next" pointer of that node to be the current head pointer.
+3. Change the head pointer to point to the newly created node.
 
 Lastly, implement `toString` so that you can see what your list looks like. The
 `toString` method should create a string that contains each element of the list
 separated by spaces. For instance, if your list contained the values 10, 5, 90,
 -12, and 7, `toString` would return `"10 5 90 -12 7"`.
 
-## Part 2 (10 points) - `size()`
+## Part 2 (5 points) - `size`
 
-The next step is to implement the `size` method. This method should walk through
-your linked list, counting up the number of nodes.
+The next step is to implement the `size` method. This method should return the
+number of items in the list.
 
-## Part 3 (20 points) - `insertTail()` and `insertAfter()`
+## Part 3 (15 points) - `push_back` and `insert`
 
-Next, implement the remaining insert methods: `insertTail` and `insertAfter`.
+Next, implement the remaining insert methods: `push_back` and `insert`.
 
-`insertTail` should insert the given value at the end of the list, making sure
-(like `insertHead` does) that the given value is not already in the list.
+`push_back` should insert the given value at the end of the list.
 
-`insertAfter` has two arguments: the value to insert and the value to insert
-after. `insertAfter` should:
-1. Make sure that the value to insert is not already in the list. If it is,
-   nothing should happen.
-2. Check if the value to insert after is in the list. If not, nothing should
-   happen.
-3. Make a new node that contains the value to insert.
-4. Insert the new node immediately after the value to insert after.
+`insert` should insert the given value at the specified index if the index is in
+range. If the specified index is not in range, it should throw an
+`std::out_of_range`.
 
-Wow, there are lots of "value"s, "insert"s and "after"s!
+## Part 4 (10 points) - `at`, `front`, and `back`
 
-## Part 4 (10 points) - `at()`
+Next, implement the accessor methods: `at`, `front`, and `back`.
 
-Next, implement the `at` method. It should return the value in the list at the
-specified index, throwing an `std::out_of_range` if the index is too big.
+The `at` method should return the value in the list at the specified index,
+throwing an `std::out_of_range` if the index is too big.
 
-## Part 5 (10 points) - `remove()`
+The `front` method should return the first value in the list, throwing an
+`std::length_error` if the list is empty.
 
-Next, implement the `remove` method. This should look through the list for a
-node with the specified value, and, if it finds one, remove it.
+The `back` method should return the last value in the list, throwing an
+`std::length_error` if the list is empty.
 
-## Part 6 (10 points) - `clear()` and destructor
+## Part 5 (5 points) - `contains`
 
-The last thing to do is write code to clear the list, whether it's done through
-an explicit call to `clear` or the fact that the list is going away and being
+Next, implement the `contains` method. This should search the list for the given
+value, returning `true` if the value is in the list and `false` otherwise.
+
+## Part 6 (15 points) - `remove`, `pop_front`, and `pop_back`
+
+You're almost there! The second-to-last step is to implement the remove methods:
+`remove`, `pop_front`, and `pop_back`.
+
+The `remove` method should remove the node at the specified index, throwing an
+`std::out_of_range` if the index is too big.
+
+The `pop_front` method should remove the first item in the list, throwing an
+`std::length_error` if the list is empty.
+
+The `pop_back` method should remove the last item in the list, throwing an
+`std::length_error` if the list is empty.
+
+## Part 7 (10 points) - `clear` and destructor
+
+The last thing to do is write code to clear the list, whether that's needed due
+to an explicit call to `clear` or the fact that the list is going away and being
 destroyed (via the destructor). Remember that to be a good citizen of the
 computer, a program should free all memory that it allocates. So, `clear` should
 deallocate any nodes that had been allocated by your linked list.
 
 First, implement the `clear` method. This should traverse your list, `delete`ing
-all nodes. Make sure that after doing so, you set `head` to `nullptr` so that
-your class doesn't try to access a `delete`d node.
+all nodes. Make sure that after doing so, you set your head pointer to `nullptr`
+so that your class doesn't try to access a `delete`d node (the same applies for
+your tail pointer if you chose to include one).
 
 Second, implement the destructor. Since all the destructor does is clear the
 list, all you should have to do in your destructor is call `clear`.

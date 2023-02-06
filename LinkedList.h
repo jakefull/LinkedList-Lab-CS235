@@ -9,100 +9,61 @@ class LinkedList: public LinkedListInterface<T> {
 public:
     LinkedList() {
         // implement your constructor here
-    };
+    }
 
     virtual ~LinkedList() {
         // implement your destructor here
-    };
-
-    /*
-    insertHead
-
-    A node with the given value should be inserted at the beginning of the list.
-
-    Do not allow duplicate values in the list.
-    */
-    virtual void insertHead(T value) {
-        // implement insertHead here
     }
 
-    /*
-    insertTail
-
-    A node with the given value should be inserted at the end of the list.
-
-    Do not allow duplicate values in the list.
-    */
-    virtual void insertTail(T value) {
-        // implement insertTail here
+    virtual void push_front(T item) {
+        // implement push_front here
     }
 
-    /*
-    insertAfter
-
-    A node with the given value should be inserted immediately after the
-    node whose value is equal to insertionNode.
-
-    A node should only be added if the node whose value is equal to
-    insertionNode is in the list. Do not allow duplicate values in the list.
-    */
-    virtual void insertAfter(T value, T insertionNode) {
-        // implement insertAfter here
+    virtual void push_back(T item) {
+        // implement push_back here
     }
 
-    /*
-    remove
+    virtual void insert(T item, size_t position) {
+        // implement insert here
+    }
 
-    The node with the given value should be removed from the list.
+    virtual void pop_front() {
+        // implement pop_front here
+    }
 
-    The list may or may not include a node with the given value.
-    */
-    virtual void remove(T value) {
+    virtual void pop_back() {
+        // implement pop_back here
+    }
+
+    virtual void remove(size_t position) {
         // implement remove here
     }
 
-    /*
-    clear
+    virtual T front() const {
+        // implement front here
+    }
 
-    Remove all nodes from the list.
-    */
+    virtual T back() const {
+        // implement back here
+    }
+
+    virtual T at(size_t index) const {
+        // implement at here
+    }
+
+    virtual bool contains(const T& item) const {
+        // implement contains here
+    }
+
+    virtual size_t size() const {
+        // implement size here
+    }
+
     virtual void clear() {
         // implement clear here
     }
 
-    /*
-    at
-
-    Returns the value of the node at the given index. The list begins at index
-    0.
-
-    If the given index is out of range of the list, throw an std::out_of_range
-    exception.
-    */
-    virtual T at(int index) {
-        // implement at here
-    }
-
-    /*
-    size
-
-    Returns the number of nodes in the list.
-    */
-    virtual int size() {
-        // implement size here
-    }
-
-    /*
-    toString
-
-    Returns a string representation of the list, with the value of each node
-    listed in order (Starting from the head) and separated by a single space
-    There should be no trailing space at the end of the string
-
-    For example, a LinkedList containing the value 1, 2, 3, 4, and 5 should
-    return "1 2 3 4 5"
-    */
-    virtual std::string toString() {
+    virtual std::string toString() const {
         // implement toString here
     }
 };

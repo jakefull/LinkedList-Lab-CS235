@@ -1,17 +1,35 @@
 --- Part 6 output ---
--19
--24 -19
--12 -24 -19
--21 -12 -24 -19
--8 -21 -12 -24 -19
-15 -8 -21 -12 -24 -19
-15 -8 -21 -12 -24 -19
-11 15 -8 -21 -12 -24 -19
--20 11 15 -8 -21 -12 -24 -19
-0 -20 11 15 -8 -21 -12 -24 -19
-0 -20 11 15 -8 -21 -12 -24 -19
--10 0 -20 11 15 -8 -21 -12 -24 -19
-12 -10 0 -20 11 15 -8 -21 -12 -24 -19
-2 12 -10 0 -20 11 15 -8 -21 -12 -24 -19
--2 2 12 -10 0 -20 11 15 -8 -21 -12 -24 -19
+0 1 2 3 4 5 6 7 8 9
+list->remove(11) threw an out_of_range exception
+0 1 2 3 4 5 6 7 8 9
+1 2 3 4 5 6 7 8 9
+list->remove(10) threw an out_of_range exception
+1 2 3 4 5 6 7 8 9
+1 2 3 4 5 6 8 9
+list->remove(8) threw an out_of_range exception
+1 2 3 4 5 6 8 9
+1 2 4 5 6 8 9
+1 2 4 5 8 9
+1 2 4 8 9
+list->remove(6) threw an out_of_range exception
+1 2 4 8 9
+1 2 4 8
+1 4 8
+1 4
+1
+
+0 1 2 3 4 5 6 7 8 9
+1 2 3 4 5 6 7 8 9
+1 2 3 4 5 6 7 8
+2 3 4 5 6 7 8
+2 3 4 5 6 7
+3 4 5 6 7
+3 4 5 6
+4 5 6
+4 5
+5
+
+list->pop_front() threw a length_error exception
+
+list->pop_back() threw a length_error exception
 
