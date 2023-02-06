@@ -117,7 +117,7 @@ The `back` method should return the last value in the list, throwing an
 Next, implement the `contains` method. This should search the list for the given
 value, returning `true` if the value is in the list and `false` otherwise.
 
-## Part 6 (15 points) - `remove`, `pop_front`, and `pop_back`
+## Part 6 (20 points) - `remove`, `pop_front`, and `pop_back`
 
 You're almost there! The second-to-last step is to implement the remove methods:
 `remove`, `pop_front`, and `pop_back`.
