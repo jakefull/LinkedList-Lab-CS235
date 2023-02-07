@@ -1,0 +1,15 @@
+--- Part 2 output ---
+list->size() = 0
+list->size() = 1
+list->size() = 2
+list->size() = 3
+list->size() = 4
+list->size() = 5
+list->size() = 6
+list->size() = 7
+list->size() = 8
+list->size() = 9
+list->size() = 10
+list->size() = 11
+list->size() = 12
+list->size() = 13

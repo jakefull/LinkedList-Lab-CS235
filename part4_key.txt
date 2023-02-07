@@ -1,0 +1,14 @@
+--- Part 4 output ---
+list->front() threw a length_error exception
+list->back() threw a length_error exception
+list->front() = 5
+list->back() = 9
+list->at(0) = 0
+list->at(1) = 1
+list->at(4) = 4
+list->at(8) = 8
+list->at(9) = 9
+list->at(10) threw an out_of_range exception
+list->at(29) threw an out_of_range exception
+list->front() = 0
+list->back() = 9
