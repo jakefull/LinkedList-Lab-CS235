@@ -655,7 +655,7 @@ void part7() {
 int main(int argc, char* argv[]) {
     if (argc < 2) {
         std::cerr << "Usage: " << argv[0] << " [TEST]" << std::endl;
-        std::cerr << "where TEST is one of 1, 2, 3, 4, 5, 6, or all" << std::endl;
+        std::cerr << "where TEST is one of 1, 2, 3, 4, 5, 6, 7, or all" << std::endl;
         return 1;
     }
 
@@ -696,7 +696,7 @@ int main(int argc, char* argv[]) {
         std::cout << "\n\n";
         part7();
     } else {
-        std::cerr << test << " is not a valid test to run. The valid options are 1, 2, 3, 4, 5, 6, and all"
+        std::cerr << test << " is not a valid test to run. The valid options are 1, 2, 3, 4, 5, 6, 7, and all"
             << std::endl;
         return 1;
     }
