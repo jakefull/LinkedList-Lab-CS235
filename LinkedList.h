@@ -6,9 +6,20 @@
 
 template<typename T>
 class LinkedList: public LinkedListInterface<T> {
+    class Node {
+    public:
+        Node(T value) : value(value) next(nullptr) {} //constructor
+        T value;
+        Node * next;
+    };
+    Node* head;
+    Node* tail;
+    size_t lsize;
 public:
     LinkedList() {
-        // implement your constructor here
+        head = nullptr;
+        tail = nullptr;
+        lsize = 0;
     }
 
     virtual ~LinkedList() {
@@ -16,11 +27,27 @@ public:
     }
 
     virtual void push_front(T item) {
-        // implement push_front here
+        Node addThis = new Node(item);
+        if(lsize==0){ //if empty
+            head = &addThis;
+            tail = &addThis;
+        } else { //not empty
+            addThis.next = head;
+            head = &addThis;
+        }
+        lsize++;
     }
 
     virtual void push_back(T item) {
-        // implement push_back here
+        Node addThis = new Node(item);
+        if(lsize==0) { //if empty
+            head = &addThis;
+            tail = &addThis;
+        } else { //not empty
+            tail = &addThis;
+            //x.next is already nullptr
+        }
+        lsize++;
     }
 
     virtual void insert(T item, size_t position) {
