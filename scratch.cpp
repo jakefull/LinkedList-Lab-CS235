@@ -10,5 +10,12 @@ int main(int argc, char* argv[]) {
     intList.push_front(2);
     intList.push_front(1);
     cout << intList.toString() << endl;
+    cout << intList.size() << endl;
+    intList.insert(42,3);
+    cout << intList.toString() << endl;
+    intList.remove(2);
+    cout << intList.toString() << endl;
+    LinkedList<std::string> strList;
+    strList.pop_back();
     return 0;
 }
